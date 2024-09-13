@@ -57,18 +57,36 @@ body {
 }
 
 .bg-black {
-    background: #000;
-}!important
+    background: #000 !important;
+}
 
 .overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
 }
+
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -76,7 +94,8 @@ body {
   .container {
     max-width: 80%;
   }
-    }    
+}
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -91,7 +110,6 @@ body {
         padding-top: 164px;
     }
 }
-
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {

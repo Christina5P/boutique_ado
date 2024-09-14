@@ -15,4 +15,6 @@
    "files.autoSave": "afterDelay",
    "workbench.colorTheme": "Tomorrow Night Blue",
    "terminal.integrated.gpuAcceleration": "canvas",
+   "less.lint.duplicateProperties": "warning",
+   "css.lint.duplicateProperties": "warning",
 }

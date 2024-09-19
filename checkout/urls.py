@@ -8,4 +8,5 @@ urlpatterns = [
         views.checkout_success,
         name='checkout_success',
     ),
+    path('wh/', webhook, name='webhook'),
 ]

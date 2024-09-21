@@ -1,6 +1,9 @@
 import os
 from pathlib import Path
 
+if os.path.exists('env.py'):
+    import env
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
@@ -72,7 +75,7 @@ TEMPLATES = [
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
                 'crispy_forms.templatetags.crispy_forms_field',
-            ],
+            ]
         },
     },
 ]

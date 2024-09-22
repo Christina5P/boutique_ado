@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower 
 from .models import Product, Category
@@ -7,10 +8,12 @@ from .forms import ProductForm
 
 # Create your views here.
 
-
+@login_required
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
-
+    if not request.user.is_superuser: 
+        messages.error(request, 'Sorry, only store owner can do that')
+        return redirect(reverse('home'))
     products = Product.objects.all()
     query = None
     categories = None
@@ -57,6 +60,7 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
+@login_required
 def product_detail(request, product_id):
     """A view to show individual product details"""
 
@@ -69,6 +73,7 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required
 def add_product(request):
     """Add product to the store"""
     if request.method == 'POST':
@@ -90,6 +95,7 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_product(request, product_id):
     """Edit a product in the store"""
     product = get_object_or_404(Product, pk=product_id)
@@ -117,10 +123,10 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_product(request, product_id):
     """Delete a product in the store"""
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Successfully deleted product!')
     return redirect(reverse('products'))
-       

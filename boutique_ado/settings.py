@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 from pathlib import Path
 
 if os.path.exists('env.py'):
@@ -16,7 +17,7 @@ SECRET_KEY = 'django-insecure-whfhv&q6nj9(6^en5d1j5@w&nl_&bl$eld_6lt1d(dm5rnc1p6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-christina5p-boutiqueado-df4g6t0k3ey.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-christina5p-boutiqueado-df4g6t0k3ey.ws.codeinstitute-ide.net', 'localhost']
 
 
 # Application definition
@@ -107,14 +108,18 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+IF 'DATABASE_URL' in os.environ:
 
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+else:    
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

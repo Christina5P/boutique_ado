@@ -12,10 +12,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-whfhv&q6nj9(6^en5d1j5@w&nl_&bl$eld_6lt1d(dm5rnc1p6'
-
+SECRET_KEY = os.environ.get('SECRET_KEY','')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['8000-christina5p-boutiqueado-df4g6t0k3ey.ws.codeinstitute-ide.net', 'localhost']
 

@@ -12,12 +12,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
-# SECRET_KEY = 'sks1nc-ense!1h6&uz!0vds+onr1*rp70#t9k=(x=1hcl)8#@2'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'f^!mp7$%aq^6%d2+ptp2fnw5ow%*np*!f*h4afnn!m(9(kd&0y'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-christina5p-boutiqueado-df4g6t0k3ey.ws.codeinstitute-ide.net', 'localhost']
+ALLOWED_HOSTS = [
+    '8000-christina5p-boutiqueado-df4g6t0k3ey.ws.codeinstitute-ide.net',
+    'localhost',
+    'https://pp5boutiqueado-9b83dc4a64f8.herokuapp.com/',
+]
 
 
 # Application definition
@@ -165,8 +169,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
     # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = 'ckz8780-boutique-ado'
-    AWS_S3_REGION_NAME = 'us-east-1'
+    AWS_STORAGE_BUCKET_NAME = '/pp5boutiqueadonew'
+    AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'

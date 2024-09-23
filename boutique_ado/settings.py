@@ -20,7 +20,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '8000-christina5p-boutiqueado-df4g6t0k3ey.ws.codeinstitute-ide.net',
     'localhost',
-    'https://pp5boutiqueado-9b83dc4a64f8.herokuapp.com/',
+    'pp5boutiqueado-9b83dc4a64f8.herokuapp.com',
 ]
 
 

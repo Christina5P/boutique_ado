@@ -13,9 +13,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-# SECRET_KEY = 'f^!mp7$%aq^6%d2+ptp2fnw5ow%*np*!f*h4afnn!m(9(kd&0y'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-christina5p-boutiqueado-df4g6t0k3ey.ws.codeinstitute-ide.net',
